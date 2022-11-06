@@ -19,10 +19,19 @@ export const RegisterPage = () => {
             placeholder='pepito perez'
             fullWidth
             />
+           
             </Grid>
-            <Grid item>
+            <Grid item sx={12}>
             <TextField 
-            label='Contraseña' 
+            label='email' 
+            type='text'
+            placeholder='test@mail.com'
+            fullWidth
+            />
+             </Grid>
+            <Grid item sx={12} >
+            <TextField 
+            label='contraseña' 
             type='password'
             placeholder='contraseña'
             fullWidth

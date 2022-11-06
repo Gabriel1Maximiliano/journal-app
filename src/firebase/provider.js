@@ -1,4 +1,5 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth'
+import { FlashOnRounded } from '@mui/icons-material';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile, signInWithEmailAndPassword } from 'firebase/auth'
 import { FireBaseAuth } from './config';
 
 
@@ -63,5 +64,23 @@ export const registerUserWithEmailPassword = async({email,password,displayName})
       ok:false,
       errorMessage:error.message,
     }
+  }
+};
+
+export const loginWithEmailPassword = async({ email, password }) => {
+  console.log({ email, password })
+
+  try {
+      const resp = await signInWithEmailAndPassword( FireBaseAuth, email, password );
+      console.log(resp)
+      const { uid, photoURL, displayName } = resp.user;
+
+      return {
+          ok: true,
+          uid, photoURL, displayName
+      }
+
+  } catch (error) {
+      return { ok: false, errorMessage: error.message }
   }
 }

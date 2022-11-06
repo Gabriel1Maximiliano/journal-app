@@ -1,3 +1,4 @@
+import { singInWithGoolgle } from "../../firebase/provider";
 import { checkingCredentials } from "./authSlice"
 
 
@@ -8,8 +9,10 @@ export const checkingAthentication = ( email, password ) => {
  }
 }
 
-export const startGoogleSignIn = (  ) => {
+export const startGoogleSignIn = () => {
     return async ( dispatch ) =>{
-        dispatch( checkingCredentials());
+        dispatch( checkingCredentials() );
+         const result = await singInWithGoolgle();
+         
     }
 }

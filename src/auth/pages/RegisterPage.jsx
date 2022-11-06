@@ -35,23 +35,17 @@ export const RegisterPage = () => {
   } = useForm( formData, formValidations );
 
   const onSubmit = ( event ) => {
-    console.log('en el submit de registro')
+   
     event.preventDefault();
     setFormSubmitted(true);
-    //console.log(formState);
+ 
 
 
     if ( !isFormValid ) return;
 
    dispatch( startCreatingWithEmailpassword( formState ));
 
-   return {
-    ok:true,
-    uid,
-    displayName,
-    email,
-    photoURL,
-   }
+  
   }
 
   return (

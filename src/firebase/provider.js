@@ -28,7 +28,7 @@ export const singInWithGoolgle = async()=>{
     const email = error.customData.email;
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
-        console.log(error);
+
         return{
             ok:false,
             errorMessage
@@ -68,7 +68,7 @@ export const registerUserWithEmailPassword = async({email,password,displayName})
 };
 
 export const loginWithEmailPassword = async({ email, password }) => {
-  console.log({ email, password })
+  
 
   try {
       const resp = await signInWithEmailAndPassword( FireBaseAuth, email, password );

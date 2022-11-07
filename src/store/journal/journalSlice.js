@@ -34,4 +34,4 @@ reducers:{
 
 });
 
-export const { addNewEmptyNote, setActiveNote, setNotes, setSaving, upDateNote, deleteNoteById } = authSlice.actions;
+export const { addNewEmptyNote, setActiveNote, setNotes, setSaving, upDateNote, deleteNoteById } = journalSlice.actions;

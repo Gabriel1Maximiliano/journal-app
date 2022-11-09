@@ -23,7 +23,7 @@ export const journalSlice = createSlice({
       state.isSaving = false
     },
     setActiveNote: (state, action) => {
-
+      state.messageSaved='';
       state.active = action.payload;
 
     },
@@ -32,6 +32,7 @@ export const journalSlice = createSlice({
     },
     setSaving: (state, action) => {
       state.isSaving = true;
+      state.messageSaved='';
       //to do
     },
     upDateNote: (state, action) => {
@@ -44,6 +45,7 @@ export const journalSlice = createSlice({
       })
 
       //odo mostrar mensaje de acutulizacion
+      state.messageSaved = `${action.payload.title }actualizada correctamente`;
     },
     deleteNoteById: (state, action) => {
 

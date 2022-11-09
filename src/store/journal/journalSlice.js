@@ -1,3 +1,4 @@
+import { SettingsEthernet } from '@mui/icons-material';
 import { createSlice } from '@reduxjs/toolkit'
 
 export const journalSlice = createSlice({
@@ -30,10 +31,19 @@ export const journalSlice = createSlice({
         state.notes = action.payload;
     },
     setSaving: (state, action) => {
-
+      state.isSaving = true;
+      //to do
     },
     upDateNote: (state, action) => {
+      state.isSaving = true;
+      state.notes = state.notes.map(note =>{
+        if( note.id === action.payload.id ){
+          return action.payload;
+        }
+        return note;
+      })
 
+      //odo mostrar mensaje de acutulizacion
     },
     deleteNoteById: (state, action) => {
 

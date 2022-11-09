@@ -5,9 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import { Alert, Button, Grid, Link, TextField, Typography } from '@mui/material';
 import { Google } from '@mui/icons-material';
-
 import { AuthLayout } from '../layout/AuthLayout';
-
 import { useForm } from '../../hooks';
 import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth/thunks';
 
@@ -36,7 +34,7 @@ export const LoginPage = () => {
   }
 
   const onGoogleSignIn = () => {
-    console.log('onGoogleSignIn');
+   
     dispatch( startGoogleSignIn() );
   }
 

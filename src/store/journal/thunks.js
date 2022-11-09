@@ -1,7 +1,8 @@
 
 import { collection, doc, setDoc } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../../firebase/config';
-import { addNewEmptyNote, setActiveNote, savingNewNote } from './journalSlice';
+import { loaadNotes } from '../../helpers';
+import { addNewEmptyNote, setActiveNote, savingNewNote, setNotes } from './journalSlice';
 
 export const startNewNote = () => {
     console.log('me dipare')
@@ -25,5 +26,19 @@ const { uid } = getState().auth;
        // dispatch
        dispatch( addNewEmptyNote( newNote ) );
        dispatch( setActiveNote( newNote ) );
+    }
+ };
+
+ export const startLoadingNotes = (  ) => {
+    return async ( dispatch, getState ) => {
+        const { uid } = getState().auth;
+
+        if( !uid ){
+            throw new Error('El uid no esta establecido');
+        };
+        
+       const notes =  await loaadNotes( uid );
+
+       dispatch( setNotes( notes ) );
     }
  }

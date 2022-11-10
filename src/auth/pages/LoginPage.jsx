@@ -17,7 +17,7 @@ const data = {
 export const LoginPage = () => {
 
   const { status, errorMessage } = useSelector( state => state.auth );
-  console.log({errorMessage})
+
 
   const dispatch = useDispatch();
 
@@ -70,7 +70,7 @@ export const LoginPage = () => {
 
             <Grid 
               container
-              display={ !!errorMessage ? '': 'none' }
+              display={ errorMessage? '': 'none' }
               sx={{ mt: 1 }}>
               <Grid 
                   item 

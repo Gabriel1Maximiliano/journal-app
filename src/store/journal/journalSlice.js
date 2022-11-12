@@ -1,4 +1,4 @@
-import { SettingsEthernet } from '@mui/icons-material';
+
 import { createSlice } from '@reduxjs/toolkit'
 
 export const journalSlice = createSlice({
